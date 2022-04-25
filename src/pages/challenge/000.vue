@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 const flag = ref(false)
+function createNewRect() {
+  flag.value = true
+}
 function generateRect() {
   const canvas: HTMLCanvasElement = document.querySelector('#myCanvas')!
   const ctx: CanvasRenderingContext2D = canvas.getContext('2d')!
@@ -21,21 +24,18 @@ function generateRect() {
     top.forEach((t) => {
       ctx.strokeRect(300, -200 + i - t, 200, 200)
     })
+    // 两次点击间隔超过900，则清空绘图数组
     const filter = top.every((t) => {
       if (i - t > 900)
         return true
       return false
     })
     if (filter) {
-      top = [0]
+      top = []
       i = 0
     }
     i += 10
-    console.log(top)
   }, 30)
-}
-function createNewRect() {
-  flag.value = true
 }
 onMounted(() => {
   generateRect()
