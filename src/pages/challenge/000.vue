@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+/* eslint-disable no-console */
 const flag = ref(false)
 function createNewRect() {
   flag.value = true
@@ -34,6 +35,7 @@ function generateRect() {
       top = []
       i = 0
     }
+    console.log(top)
     i += 10
   }, 30)
 }

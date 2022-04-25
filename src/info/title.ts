@@ -1,9 +1,9 @@
 export const info: { title: string; date?: string }[] = [
   {
-    title: 'Mass',
+    title: 'Down',
   },
   {
-    title: 'Next',
+    title: 'Rotate',
   },
   {
     title: 'Next',
