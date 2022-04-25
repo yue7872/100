@@ -11,7 +11,7 @@ const countArr = computed(() => {
       v-for="(count,idx) in countArr"
       :key="idx"
       :href="`./challenge/${count}`"
-      class="min-w-1/3 opacity-60 hover:opacity-100 font-mono"
+      class="min-w-1/3 opacity-60 hover:opacity-100 font-mono text-left"
     >
       <span opacity-30 mt-10>{{ count }}</span>
       {{ info[idx].title }}

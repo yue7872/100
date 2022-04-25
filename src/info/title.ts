@@ -3,16 +3,16 @@ export const info: { title: string; date?: string }[] = [
     title: 'Down',
   },
   {
-    title: 'Rotate',
+    title: 'Mater',
   },
   {
-    title: 'Next',
+    title: 'Coming...',
   },
   {
-    title: 'Next',
+    title: 'Coming...',
   },
   {
-    title: 'Next',
+    title: 'Coming...',
   },
 ]
 

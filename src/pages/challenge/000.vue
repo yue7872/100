@@ -35,17 +35,18 @@ function generateRect() {
       top = []
       i = 0
     }
-    console.log(top)
     i += 10
   }, 30)
 }
 onMounted(() => {
   generateRect()
 })
+
 </script>
 <template>
-  <div
-    class="
+  <div>
+    <div
+      class="
       w-100%
       h-450px
       flex
@@ -53,19 +54,20 @@ onMounted(() => {
       justify-center
       items-center
     "
-    @click="createNewRect()"
-  >
-    <div border-1>
-      <canvas
-        id="myCanvas"
-        class="
+      @click="createNewRect()"
+    >
+      <div border-1>
+        <canvas
+          id="myCanvas"
+          class="
         w-400px
         h-400px
       "
-        style="background:  0% 0% / contain rgb(255, 255, 255);"
-        width="800"
-        height="800"
-      />
+          style="background:  0% 0% / contain rgb(255, 255, 255);"
+          width="800"
+          height="800"
+        />
+      </div>
     </div>
   </div>
 </template>

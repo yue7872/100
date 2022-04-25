@@ -17,5 +17,6 @@ import { isDark, toggleDark } from '~/composables'
       target="_blank"
       title="GitHub"
     />
+    <Bottom />
   </nav>
 </template>
