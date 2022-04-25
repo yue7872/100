@@ -6,15 +6,14 @@ const countArr = computed(() => {
 </script>
 
 <template>
-  <div w-500px flex flex-wrap m-auto>
+  <div w-500px m-auto grid grid-cols-3 gap-2>
     <a
       v-for="(count,idx) in countArr"
       :key="idx"
-      :href="`./challenge/${count}.vue`"
-      flex-1
-      class="min-w-1/3"
+      :href="`./challenge/${count}`"
+      class="min-w-1/3 opacity-60 hover:opacity-100 font-mono"
     >
-      <span>{{ count }}</span>
+      <span opacity-30 mt-10>{{ count }}</span>
       {{ info[idx].title }}
     </a>
   </div>
