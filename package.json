@@ -23,6 +23,7 @@
     "@vue/test-utils": "^2.0.0-rc.19",
     "eslint": "^8.13.0",
     "jsdom": "^19.0.0",
+    "matter-js": "^0.18.0",
     "pnpm": "^6.32.6",
     "typescript": "^4.6.3",
     "unocss": "^0.31.0",
