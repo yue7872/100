@@ -36,7 +36,7 @@ function generateRect() {
       i = 0
     }
     i += 10
-  }, 30)
+  }, 20)
 }
 onMounted(() => {
   generateRect()

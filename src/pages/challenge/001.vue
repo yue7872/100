@@ -1,55 +1,47 @@
 <script lang=ts setup>
 import Matter from 'matter-js'
+import { noop } from '@vueuse/shared'
+const { Engine, Render, Runner, Bodies, World } = Matter
+const f = { add: noop }
+const canvas = ref(null)
 function generate() {
-  const Engine = Matter.Engine
-  const Render = Matter.Render
-  const Runner = Matter.Runner
-  const Bodies = Matter.Bodies
-  const Composite = Matter.Composite
-
   // create an engine
   const engine = Engine.create()
 
   // create a renderer
   const render = Render.create({
-    element: document.querySelector('#myCanvas'),
+    element: canvas.value!,
     engine,
     options: {
     },
   })
-  const customWidth = Array.from({ length: 5 }, (i) => { return Math.random() * 800 })
   // create two boxes and a ground
-  const boxA = Bodies.rectangle(customWidth[0], 200, 80, 80)
-  const boxB = Bodies.rectangle(customWidth[1], 50, 80, 80)
-  const boxC = Bodies.rectangle(customWidth[2], 50, 100, 100)
-  const groundA = Bodies.rectangle(customWidth[3], 210, 100 + Math.random() * 300, 60, { isStatic: true })
-  const groundB = Bodies.rectangle(customWidth[4], 600, 100 + Math.random() * 700, 60, { isStatic: true })
+  f.add = () => {
+    const boxA = Bodies.polygon(Math.random() * 800, 0, Math.random() * 10, Math.random() * 100)
+    World.add(engine.world, [boxA])
+  }
 
-  // add all of the bodies to the world
-  Composite.add(engine.world, [boxA, boxB, boxC, groundA, groundB])
+  f.add()
 
-  // run the renderer
+  const groundA = Bodies.rectangle(Math.random() * 800, 210, 100 + Math.random() * 300, 60, { isStatic: true })
+  const groundB = Bodies.rectangle(Math.random() * 800, 600, 100 + Math.random() * 700, 60, { isStatic: true })
+
+  World.add(engine.world, [groundA, groundB])
   Render.run(render)
-
-  // create runner
-  const runner = Runner.create()
-
-  // run the engine
-  Runner.run(runner, engine)
+  Runner.run(engine)
 }
+
 onMounted(() => {
   generate()
 })
-function hanlder() {
-  document.querySelector('#myCanvas')!.children[0].remove()
-  generate()
-}
 </script>
 <template>
-  <div id="myCanvas" m-auto w-802px h-602px border-1 @click="hanlder()" />
+  <div id="myCanvas" ref="canvas" mt-100px m-auto w-402px h-302px border-1 @click="f.add" />
 </template>
 <style>
   #myCanvas canvas{
     background-color: #fff !important;
+    width: 400px;
+    height: 300px;
   }
 </style>
