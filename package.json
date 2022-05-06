@@ -37,7 +37,8 @@
   "eslintConfig": {
     "extends": "@antfu",
     "rules": {
-      "no-unused-vars": "off"
+      "no-unused-vars": "off",
+      "antfu/if-newline": "off"
     }
   }
 }

@@ -6,7 +6,7 @@ export const info: { title: string; date?: string }[] = [
     title: 'Mater',
   },
   {
-    title: 'Hex',
+    title: 'Scope',
   },
   {
     title: 'Coming...',
