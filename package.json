@@ -38,7 +38,8 @@
     "extends": "@antfu",
     "rules": {
       "no-unused-vars": "off",
-      "antfu/if-newline": "off"
+      "antfu/if-newline": "off",
+      "@typescript-eslint/brace-style": "off"
     }
   }
 }
